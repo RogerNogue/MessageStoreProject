@@ -16,6 +16,7 @@ void ConsoleView::Run() const
 	string str;
 	getline(cin, str);
 	cout << endl;
+	createUser.Run(str);
 }
 
 } // namespace Views
