@@ -7,7 +7,7 @@ namespace Views {
 class Repository : public Controllers::IRepository{
 public:
     ~Repository() = default;
-    virtual void SaveUserPool(Models::UserPool pool)
+    virtual void SaveUserPool(const Models::UserPool pool)
     {
         userPool = pool;
     }
