@@ -37,4 +37,4 @@ target_sources(
     PRIVATE ${HEADERS}
     PRIVATE ${SRC_SOURCES}
     "src/Controllers/CreateUser.h" "src/Controllers/CreateUser.cpp" "src/Controllers/IRepository.h" "src/Views/Repository.h" "src/Models/UserPool.cpp"
- "src/Views/ConsoleView.h" "src/Views/ConsoleView.cpp")
+ "src/Views/ConsoleView.h" "src/Views/ConsoleView.cpp" "src/Models/Message.h" "src/Models/Message.cpp")
