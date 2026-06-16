@@ -69,3 +69,8 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# missing ignores for visual studio
+.vs/
+out/
+.idea/indexLayout.xml
