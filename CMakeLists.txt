@@ -26,8 +26,14 @@ file(
     "${CMAKE_CURRENT_SOURCE_DIR}/MessageStore/*.hpp"
 )
 
+file(
+    GLOB_RECURSE SRC_SOURCES CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+)
+
 target_sources(
     ${PROJECT_NAME}
 	PRIVATE ${SOURCES}
 	PRIVATE ${HEADERS}
-)
+	PRIVATE ${SRC_SOURCES}
+ "src/Controllers/CreateUser.h" "src/Controllers/CreateUser.cpp" "src/Controllers/IRepository.h" "src/Views/Repository.h" "src/Models/UserPool.cpp")
