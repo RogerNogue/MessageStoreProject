@@ -1,7 +1,9 @@
 #pragma once
 
 #include "User.h"
-#include <string>
+#include "Message.h"
+#include <deque>
+#include <unordered_map>
 
 namespace Models {
 
@@ -9,7 +11,7 @@ class MessagePool {
 public:
     MessagePool();
 private:
-    //data structure to messages
+    std::unordered_map<User, std::deque<Message>> messages;
 };
 
 } // namespace Models
