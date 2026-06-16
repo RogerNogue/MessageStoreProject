@@ -12,6 +12,7 @@ public:
     bool Exists(const User& user) const;
 
 private:
+    //TODO: Adapt User to be used instead of a String
     std::unordered_set<std::string> users;
 };
 
