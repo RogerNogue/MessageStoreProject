@@ -1,5 +1,4 @@
 
-#include "MessageStore.h"
 #include "../src/Controllers/CreateUser.h"
 #include "../src/Controllers/SendMessage.h"
 #include "../src/Controllers/ReceiveAllMessages.h"
@@ -9,22 +8,15 @@
 
 int main(int, const char* [])
 {
-	
-	MessageStore store;
-
 	auto repository = std::make_shared<Views::Repository>();
 
 	Controllers::CreateUser createUser(repository);
 	Controllers::SendMessage sendMessage(repository);
 	Controllers::ReceiveAllMessages receiveMessages(repository);
 
-	Views::ConsoleView view(createUser);
-	
-	while (store.ProcessInput(view, sendMessage, receiveMessages) == false){
-	
-	}
-	
-	store.terminate();
+	Views::ConsoleView view(createUser, sendMessage, receiveMessages);
+
+	view.Run();
 	
 	return 0;
 }
