@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-bool MessageStore::ProcessInput(Views::ConsoleView view) {
+bool MessageStore::ProcessInput(Views::ConsoleView view, Controllers::SendMessage sendMessage) {
 	bool ret = false;
 	// clear screen
 	for (int i = 0; i < 80; ++i) cout << endl;
@@ -20,32 +20,7 @@ bool MessageStore::ProcessInput(Views::ConsoleView view) {
 	{
 		view.Run();
 	} else if (in == "2"){
-		cout << "From: ";
-		std::string from;
-		std::getline(std::cin, from);
-		cout << endl;
-		if (Exists(from) == false)
-			cout <<"ERROR: User doesn't exist!" << endl;
-		else {
-			cout << "To: ";
-			std::string to;
-			std::getline(std::cin, to);
-			cout << endl;
-			if (Exists(to) == false)
-				cout <<"ERROR: User doesn't exist!" << endl;
-			else {
-				cout << "Message: ";
-				std::string msg;
-				std::getline(std::cin, msg);
-				cout << endl;
-				cout << "Message Sent!" << endl;
-				Message* m = new Message;
-				m->from = from;
-				m->to = to;
-				m->msg = msg;
-				messages.push_back(m);
-			}
-		}
+		sendMessage.Run();
 	} else if (in == "3") {
 		cout << "Enter name of user to receive all messages for: " << endl;
 		std::string user;

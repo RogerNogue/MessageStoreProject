@@ -4,6 +4,7 @@
 #include "Message.h"
 #include <deque>
 #include <unordered_map>
+#include <string>
 
 namespace Models {
 
@@ -12,7 +13,8 @@ public:
     MessagePool();
     void StoreMessage(Message message);
 private:
-    std::unordered_map<User, std::deque<Message>> messages;
+    //TODO: make User hashable (same as with the User pool)
+    std::unordered_map<std::string, std::deque<Message>> messages;
 };
 
 } // namespace Models
