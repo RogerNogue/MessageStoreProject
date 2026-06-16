@@ -9,4 +9,4 @@ public:
     std::string ID;
 };
 
-}
+} // namespace Model
