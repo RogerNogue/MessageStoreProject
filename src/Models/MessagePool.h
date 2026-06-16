@@ -10,6 +10,7 @@ namespace Models {
 class MessagePool {
 public:
     MessagePool();
+    void StoreMessage(Message message);
 private:
     std::unordered_map<User, std::deque<Message>> messages;
 };

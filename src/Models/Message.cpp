@@ -7,4 +7,9 @@ Message::Message(User from, User to, std::string content)
 {
 }
 
+User Message::GetDestination() const
+{
+	return to;
+}
+
 } // namespace Models

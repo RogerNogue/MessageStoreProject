@@ -8,6 +8,7 @@ namespace Models {
 class Message {
 public:
     Message(User from, User to, std::string content);
+    User GetDestination() const;
 private:
     User from;
     User to;
