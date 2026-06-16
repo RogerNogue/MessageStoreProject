@@ -2,11 +2,11 @@
 
 namespace Models {
 
-void UserPool::Add(const User& user) {
+void UserPool::Create(const std::string id) {
     users.insert(user.ID);
 }
 
-bool UserPool::Exists(const User& user) const {
+bool UserPool::Exists(const std::string id) const {
     return users.contains(user);
 }
 
