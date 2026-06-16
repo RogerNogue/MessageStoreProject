@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1414" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-0" parent="WIyWlLk6GJQsqaUBKTNV-1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Actor" vertex="1">
+          <mxGeometry height="60" width="30" x="50" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-1" parent="WIyWlLk6GJQsqaUBKTNV-1" style="ellipse;whiteSpace=wrap;html=1;" value="CreateUser" vertex="1">
+          <mxGeometry height="70" width="140" x="210" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-2" parent="WIyWlLk6GJQsqaUBKTNV-1" style="ellipse;whiteSpace=wrap;html=1;" value="SendMessage" vertex="1">
+          <mxGeometry height="70" width="140" x="210" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-3" parent="WIyWlLk6GJQsqaUBKTNV-1" style="ellipse;whiteSpace=wrap;html=1;" value="ReceiveAllMessages" vertex="1">
+          <mxGeometry height="70" width="140" x="210" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-4" parent="WIyWlLk6GJQsqaUBKTNV-1" style="ellipse;whiteSpace=wrap;html=1;" value="Quit" vertex="1">
+          <mxGeometry height="70" width="140" x="210" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-5" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WtbGb63z9f-WLMxCOF5X-0" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" target="WtbGb63z9f-WLMxCOF5X-1" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint y="560" as="sourcePoint" />
+            <mxPoint x="160" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-6" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WtbGb63z9f-WLMxCOF5X-0" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" target="WtbGb63z9f-WLMxCOF5X-2" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="-140" y="535" as="sourcePoint" />
+            <mxPoint x="147" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-7" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WtbGb63z9f-WLMxCOF5X-0" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" target="WtbGb63z9f-WLMxCOF5X-3" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="-20" y="665" as="sourcePoint" />
+            <mxPoint x="267" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-8" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WtbGb63z9f-WLMxCOF5X-0" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" target="WtbGb63z9f-WLMxCOF5X-4" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="50" y="755" as="sourcePoint" />
+            <mxPoint x="337" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-9" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WtbGb63z9f-WLMxCOF5X-1" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" target="WtbGb63z9f-WLMxCOF5X-10" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="390" y="375" as="sourcePoint" />
+            <mxPoint x="440" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Created" treeRoot="1" id="WtbGb63z9f-WLMxCOF5X-10">
+          <mxCell parent="WIyWlLk6GJQsqaUBKTNV-1" style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1">
+            <mxGeometry height="60" width="120" x="430" y="135" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-11" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WtbGb63z9f-WLMxCOF5X-2" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" target="WtbGb63z9f-WLMxCOF5X-12" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="380" y="220" as="sourcePoint" />
+            <mxPoint x="460" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Sent" treeRoot="1" id="WtbGb63z9f-WLMxCOF5X-12">
+          <mxCell parent="WIyWlLk6GJQsqaUBKTNV-1" style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1">
+            <mxGeometry height="60" width="120" x="430" y="230" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-13" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WtbGb63z9f-WLMxCOF5X-3" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" target="WtbGb63z9f-WLMxCOF5X-14" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="460" y="380" as="sourcePoint" />
+            <mxPoint x="440" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Received" treeRoot="1" id="WtbGb63z9f-WLMxCOF5X-14">
+          <mxCell parent="WIyWlLk6GJQsqaUBKTNV-1" style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1">
+            <mxGeometry height="60" width="120" x="430" y="315" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-15" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WtbGb63z9f-WLMxCOF5X-14" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" target="WtbGb63z9f-WLMxCOF5X-16" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="550" y="430" as="sourcePoint" />
+            <mxPoint x="660" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="MessagesDeleted" treeRoot="1" id="WtbGb63z9f-WLMxCOF5X-16">
+          <mxCell parent="WIyWlLk6GJQsqaUBKTNV-1" style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1">
+            <mxGeometry height="60" width="120" x="630" y="290" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="WtbGb63z9f-WLMxCOF5X-17" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WtbGb63z9f-WLMxCOF5X-4" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" target="WtbGb63z9f-WLMxCOF5X-18" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="410" y="469" as="sourcePoint" />
+            <mxPoint x="440" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Quitted" treeRoot="1" id="WtbGb63z9f-WLMxCOF5X-18">
+          <mxCell parent="WIyWlLk6GJQsqaUBKTNV-1" style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1">
+            <mxGeometry height="60" width="120" x="430" y="410" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
