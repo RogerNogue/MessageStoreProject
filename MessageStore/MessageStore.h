@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "../src/Controllers/CreateUser.h"
 
-#include <iostream>
 
 using namespace std;
 
@@ -10,7 +10,7 @@ class MessageStore
 {
 public:
 	
-	bool ProcessInput(); // returns true when finished
+	bool ProcessInput(Controllers::CreateUser createUser); // returns true when finished
 	void terminate();
 private:
 

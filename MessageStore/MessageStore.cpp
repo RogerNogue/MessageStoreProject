@@ -1,7 +1,9 @@
 
 #include "MessageStore.h"
 
-bool MessageStore::ProcessInput() {
+#include <iostream>
+
+bool MessageStore::ProcessInput(Controllers::CreateUser createUser) {
 	bool ret = false;
 	// clear screen
 	for (int i = 0; i < 80; ++i) cout << endl;
@@ -16,17 +18,7 @@ bool MessageStore::ProcessInput() {
 	cout << endl;
 	if (in == "1")
 	{
-		cout << "Please enter name: ";
-		std::string str;
-		std::getline(std::cin, str);
-		cout << endl;
-		if (Exists(str))
-		{
-			cout << "ERROR: User already exists!" << endl;
-		} else {
-			users.push_back(str);
-			cout << "User " << str << " added!" << endl;
-		}
+		createUser.Run();
 	} else if (in == "2"){
 		cout << "From: ";
 		std::string from;
