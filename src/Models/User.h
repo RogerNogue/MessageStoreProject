@@ -2,11 +2,11 @@
 
 #include <string>
 
-namespace Model {
+namespace Models {
 
 class User {
 public:
     std::string ID;
 };
 
-} // namespace Model
+} // namespace Models

@@ -4,7 +4,7 @@
 #include <unordered_set>
 #include <string>
 
-namespace Model {
+namespace Models {
 
 class UserPool {
 public:
@@ -15,4 +15,4 @@ private:
     std::unordered_set<std::string> users;
 };
 
-} // namespace Model
+} // namespace Models
