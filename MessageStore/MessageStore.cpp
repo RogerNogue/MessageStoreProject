@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-bool MessageStore::ProcessInput(Views::ConsoleView view, Controllers::SendMessage sendMessage) {
+bool MessageStore::ProcessInput(Views::ConsoleView view, Controllers::SendMessage sendMessage, Controllers::ReceiveAllMessages receiveMessages) {
 	bool ret = false;
 	// clear screen
 	for (int i = 0; i < 80; ++i) cout << endl;
@@ -22,34 +22,7 @@ bool MessageStore::ProcessInput(Views::ConsoleView view, Controllers::SendMessag
 	} else if (in == "2"){
 		sendMessage.Run();
 	} else if (in == "3") {
-		cout << "Enter name of user to receive all messages for: " << endl;
-		std::string user;
-		std::getline(std::cin, user);
-		cout << endl;
-		if (Exists(user) == true)
-		{
-			cout << endl << "===== BEGIN MESSAGES =====" << endl;
-			int num = 0;
-			bool more;
-			do {
-				more = false;
-				for (unsigned int i = 0; i < messages.size(); ++i)
-				{
-					if (messages[i]->to == user) {
-						cout << "Message " << ++num << endl;
-						cout << "From: " << messages[i]->from << endl;
-						cout << "Content: " << messages[i]->msg << endl << endl;
-						delete messages[i];
-						messages.erase(messages.begin() + i);
-						more = true;
-						break;
-					}
-				}
-			} while (more);
-			
-			cout << endl << "===== END MESSAGES =====" << endl;
-		} else
-			cout <<"ERROR: User doesn't exist!" << endl;
+		receiveMessages.Run();
 	} else if (in == "4") {
 		cout << "Quitting!" << endl;
 		ret=true;

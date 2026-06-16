@@ -12,4 +12,14 @@ User Message::GetDestination() const
 	return to;
 }
 
+User Message::GetOrigin() const
+{
+	return from;
+}
+
+std::string Message::GetContent() const
+{
+	return content;
+}
+
 } // namespace Models

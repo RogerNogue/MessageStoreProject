@@ -3,6 +3,7 @@
 #include <vector>
 #include "../src/Views/ConsoleView.h"
 #include "../src/Controllers/SendMessage.h"
+#include "../src/Controllers/ReceiveAllMessages.h"
 
 
 using namespace std;
@@ -11,7 +12,7 @@ class MessageStore
 {
 public:
 	
-	bool ProcessInput(Views::ConsoleView view, Controllers::SendMessage sendMessage); // returns true when finished
+	bool ProcessInput(Views::ConsoleView view, Controllers::SendMessage sendMessage, Controllers::ReceiveAllMessages receiveMessages); // returns true when finished
 	void terminate();
 private:
 
