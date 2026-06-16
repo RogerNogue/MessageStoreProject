@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-bool MessageStore::ProcessInput(Controllers::CreateUser createUser) {
+bool MessageStore::ProcessInput(Views::ConsoleView view) {
 	bool ret = false;
 	// clear screen
 	for (int i = 0; i < 80; ++i) cout << endl;
@@ -18,7 +18,7 @@ bool MessageStore::ProcessInput(Controllers::CreateUser createUser) {
 	cout << endl;
 	if (in == "1")
 	{
-		createUser.Run();
+		view.Run();
 	} else if (in == "2"){
 		cout << "From: ";
 		std::string from;

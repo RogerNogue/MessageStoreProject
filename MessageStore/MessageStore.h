@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "../src/Controllers/CreateUser.h"
+#include "../src/Views/ConsoleView.h"
 
 
 using namespace std;
@@ -10,7 +10,7 @@ class MessageStore
 {
 public:
 	
-	bool ProcessInput(Controllers::CreateUser createUser); // returns true when finished
+	bool ProcessInput(Views::ConsoleView view); // returns true when finished
 	void terminate();
 private:
 

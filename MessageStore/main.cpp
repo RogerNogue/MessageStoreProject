@@ -3,6 +3,7 @@
 #include "../src/Controllers/CreateUser.h"
 #include <memory>
 #include "../src/Views/Repository.h"
+#include "../src/Views/ConsoleView.h"
 
 int main(int, const char* [])
 {
@@ -12,8 +13,10 @@ int main(int, const char* [])
 	auto repository = std::make_shared<Views::Repository>();
 
 	Controllers::CreateUser createUser(repository);
+
+	Views::ConsoleView view(createUser);
 	
-	while (store.ProcessInput(createUser) == false){
+	while (store.ProcessInput(view) == false){
 	
 	}
 	

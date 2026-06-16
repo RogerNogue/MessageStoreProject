@@ -6,22 +6,22 @@ add_executable(${PROJECT_NAME})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 target_compile_options(
-    ${PROJECT_NAME} 
+    ${PROJECT_NAME}
     PRIVATE
         $<$<CXX_COMPILER_ID:MSVC>:/W4>
         $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic>
 )
 target_include_directories(
-	${PROJECT_NAME} 
-	PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/MessageStore"
+    ${PROJECT_NAME}
+    PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/MessageStore"
 )
 
 file(
-	GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+    GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/MessageStore/*.cpp"
 )
 file(
-    GLOB_RECURSE HEADERS 
+    GLOB_RECURSE HEADERS
     "${CMAKE_CURRENT_SOURCE_DIR}/MessageStore/*.h"
     "${CMAKE_CURRENT_SOURCE_DIR}/MessageStore/*.hpp"
 )
@@ -33,7 +33,8 @@ file(
 
 target_sources(
     ${PROJECT_NAME}
-	PRIVATE ${SOURCES}
-	PRIVATE ${HEADERS}
-	PRIVATE ${SRC_SOURCES}
- "src/Controllers/CreateUser.h" "src/Controllers/CreateUser.cpp" "src/Controllers/IRepository.h" "src/Views/Repository.h" "src/Models/UserPool.cpp")
+    PRIVATE ${SOURCES}
+    PRIVATE ${HEADERS}
+    PRIVATE ${SRC_SOURCES}
+    "src/Controllers/CreateUser.h" "src/Controllers/CreateUser.cpp" "src/Controllers/IRepository.h" "src/Views/Repository.h" "src/Models/UserPool.cpp"
+ "src/Views/ConsoleView.h" "src/Views/ConsoleView.cpp")
