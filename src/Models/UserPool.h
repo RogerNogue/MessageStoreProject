@@ -8,8 +8,8 @@ namespace Models {
 
 class UserPool {
 public:
-    void Create(const std::string id);
-    bool Exists(const std::string id) const;
+    void Create(User user);
+    bool Exists(const User& user) const;
 
 private:
     std::unordered_set<std::string> users;
