@@ -15,6 +15,7 @@ namespace Controllers {
 		Models::User user(id);
 		if (userPool.Exists(user))
 		{
+			//TODO: move this logging to the view layer
 			std::cout << "ERROR: User already exists!" << std::endl;
 		}
 		else {
