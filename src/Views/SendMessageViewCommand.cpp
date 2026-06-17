@@ -18,7 +18,17 @@ void SendMessageViewCommand::PrintOperation(int operationIndex)
 void SendMessageViewCommand::Run()
 {
 	const string sender = RequestSender();
+	if (!sendMessage.DoesUserExist(sender))
+	{
+		PrintErrorUserDoesNotExist();
+		return;
+	}
 	const string receiver = RequestReceiver();
+	if (!sendMessage.DoesUserExist(receiver))
+	{
+		PrintErrorUserDoesNotExist();
+		return;
+	}
 	const string content = RequestMessageContent();
 
 	switch (sendMessage.Run(sender, receiver, content))
