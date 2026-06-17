@@ -32,6 +32,7 @@ void ConsoleView::Run() const
 
 		commands[option - 1]->Run();
 
+		//TODO: improve this pointer either via: events, directly closing, or return value
 		if (*quit)
 			return;
 

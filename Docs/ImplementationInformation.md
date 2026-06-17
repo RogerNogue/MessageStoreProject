@@ -7,3 +7,4 @@ I've decided to implement a layered architecture in which the names of the layer
 Due to time concerns, I've left some TODOs in the code:
 * Making the User entity hashable would have improved the decoupling between the User class and the std::string class.
 * Implementing a result pattern for the use cases in the Controllers layer would have reduced the code duplication. I had to add the `DoesUserExist` function in all the use cases and decided to leave that code duplicated because the solution I probably would have gone with is to return a result and allow the use case to run only in one function call instead of unifying the code duplication.
+* `quit` pointer in ConsoleView. This could be improved by either using an event, directly closing the app, or using a return value for the commands.
