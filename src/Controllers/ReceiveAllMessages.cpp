@@ -14,14 +14,14 @@ ReceiveAllMessages::ReceiveAllMessages(std::shared_ptr<IRepository> repository)
 
 bool ReceiveAllMessages::DoesUserExist(std::string id) const
 {
-	Models::UserPool userPool = repository->GetUserPool();
+	const Models::UserPool userPool = repository->GetUserPool();
 
 	return userPool.Exists(Models::User(id));
 }
 
 std::deque<Models::Message> ReceiveAllMessages::Run(std::string receiverId) const
 {
-	Models::UserPool userPool = repository->GetUserPool();
+	const Models::UserPool userPool = repository->GetUserPool();
 	Models::MessagePool messagePool = repository->GetMessagePool();
 
 	Models::User receiver(receiverId);

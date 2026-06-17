@@ -10,7 +10,7 @@ CreateUser::CreateUser(std::shared_ptr<IRepository> repository)
 
 bool CreateUser::DoesUserExist(std::string id) const
 {
-	Models::UserPool userPool = repository->GetUserPool();
+	const Models::UserPool userPool = repository->GetUserPool();
 
 	return userPool.Exists(Models::User(id));
 }

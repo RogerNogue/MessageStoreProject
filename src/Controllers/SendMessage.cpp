@@ -15,18 +15,18 @@ SendMessage::SendMessage(std::shared_ptr<IRepository> repository)
 
 bool SendMessage::DoesUserExist(std::string id) const
 {
-	Models::UserPool userPool = repository->GetUserPool();
+	const Models::UserPool userPool = repository->GetUserPool();
 
 	return userPool.Exists(Models::User(id));
 }
 
 void SendMessage::Run(std::string sender, std::string receiver, std::string messagetext) const
 {
-	Models::UserPool userPool = repository->GetUserPool();
+	const Models::UserPool userPool = repository->GetUserPool();
 	Models::MessagePool messagePool = repository->GetMessagePool();
 
-	Models::User senderUser(sender);
-	Models::User receiverUser(receiver);
+	const Models::User senderUser(sender);
+	const Models::User receiverUser(receiver);
 	Models::Message message(senderUser, receiverUser, messagetext);
 	messagePool.StoreMessage(message);
 
