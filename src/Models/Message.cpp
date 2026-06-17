@@ -2,19 +2,19 @@
 
 namespace Models {
 
-Message::Message(User from, User to, std::string content)
-	: from(std::move(from)), to(std::move(to)), content(std::move(content))
+Message::Message(User sender, User receiver, std::string content)
+	: sender(std::move(sender)), receiver(std::move(receiver)), content(std::move(content))
 {
 }
 
 User Message::GetDestination() const
 {
-	return to;
+	return receiver;
 }
 
 User Message::GetOrigin() const
 {
-	return from;
+	return sender;
 }
 
 std::string Message::GetContent() const
