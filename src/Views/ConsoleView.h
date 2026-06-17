@@ -14,7 +14,7 @@ class ConsoleView
 public:
     ConsoleView() = delete;
     ConsoleView(Controllers::CreateUser createUser, Controllers::SendMessage sendMessage, Controllers::ReceiveAllMessages receiveMessages);
-    void Run() const;
+    void Run();
 
 private:
     void RequestOneExtraInput() const;

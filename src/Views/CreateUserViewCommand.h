@@ -12,7 +12,7 @@ class CreateUserViewCommand : public IMessageCommand
 public:
     CreateUserViewCommand() = delete;
     CreateUserViewCommand(Controllers::CreateUser createUser);
-    void Run() const override;
+    void Run() override;
 
 private:
     std::string ReadUserId() const;

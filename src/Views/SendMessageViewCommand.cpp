@@ -10,7 +10,7 @@ SendMessageViewCommand::SendMessageViewCommand(Controllers::SendMessage sendMess
 {
 }
 
-void SendMessageViewCommand::Run() const
+void SendMessageViewCommand::Run()
 {
 	const string sender = RequestSender();
 	//TODO: consider creating a result pattern to only do 1 call to the use case.

@@ -12,7 +12,7 @@ class SendMessageViewCommand : public IMessageCommand
 public:
     SendMessageViewCommand() = delete;
     SendMessageViewCommand(Controllers::SendMessage sendMessage);
-    void Run() const override;
+    void Run() override;
 
 private:
     void PrintMessageSent() const;

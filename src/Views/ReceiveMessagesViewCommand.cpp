@@ -9,7 +9,7 @@ ReceiveMessagesViewCommand::ReceiveMessagesViewCommand(Controllers::ReceiveAllMe
 {
 }
 
-void ReceiveMessagesViewCommand::Run() const
+void ReceiveMessagesViewCommand::Run()
 {
 	const string receiver = RequestReceiver();
 	if (receiveMessages.DoesUserExist(receiver) == true)

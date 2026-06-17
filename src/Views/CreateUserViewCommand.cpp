@@ -9,7 +9,7 @@ CreateUserViewCommand::CreateUserViewCommand(Controllers::CreateUser createUser)
 {
 }
 
-void CreateUserViewCommand::Run() const
+void CreateUserViewCommand::Run()
 {
 	const string userId = ReadUserId();
 	//TODO: consider creating a result pattern to only do 1 call to the use case.

@@ -12,7 +12,7 @@ class ReceiveMessagesViewCommand : public IMessageCommand
 public:
     ReceiveMessagesViewCommand() = delete;
     ReceiveMessagesViewCommand(Controllers::ReceiveAllMessages receiveMessages);
-    void Run() const override;
+    void Run() override;
 
 private:
     void PrintUserDoesNotExistError() const;

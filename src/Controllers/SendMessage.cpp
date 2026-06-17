@@ -20,7 +20,7 @@ bool SendMessage::DoesUserExist(std::string id) const
 	return userPool.Exists(Models::User(id));
 }
 
-void SendMessage::Run(std::string sender, std::string receiver, std::string messagetext) const
+void SendMessage::Run(std::string sender, std::string receiver, std::string messagetext)
 {
 	const Models::UserPool userPool = repository->GetUserPool();
 	Models::MessagePool messagePool = repository->GetMessagePool();

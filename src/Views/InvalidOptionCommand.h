@@ -8,7 +8,7 @@ namespace Views {
 class InvalidOptionCommand : public IMessageCommand 
 {
 public:
-    void Run() const override
+    void Run() override
     {
         std::cout << "Invalid Option Selected" << std::endl;
     }

@@ -19,7 +19,7 @@ bool ReceiveAllMessages::DoesUserExist(std::string id) const
 	return userPool.Exists(Models::User(id));
 }
 
-std::deque<Models::Message> ReceiveAllMessages::Run(std::string receiverId) const
+std::deque<Models::Message> ReceiveAllMessages::Run(std::string receiverId)
 {
 	const Models::UserPool userPool = repository->GetUserPool();
 	Models::MessagePool messagePool = repository->GetMessagePool();

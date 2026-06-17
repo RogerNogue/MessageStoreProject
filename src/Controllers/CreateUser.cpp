@@ -15,7 +15,7 @@ bool CreateUser::DoesUserExist(std::string id) const
 	return userPool.Exists(Models::User(id));
 }
 
-void CreateUser::Run(std::string id) const
+void CreateUser::Run(std::string id)
 {
 	Models::UserPool userPool = repository->GetUserPool();
 

@@ -21,7 +21,7 @@ ConsoleView::ConsoleView(Controllers::CreateUser createUser, Controllers::SendMe
 	commands.emplace_back(std::make_unique<InvalidOptionCommand>());
 }
 
-void ConsoleView::Run() const
+void ConsoleView::Run()
 {
 	while (true)
 	{
