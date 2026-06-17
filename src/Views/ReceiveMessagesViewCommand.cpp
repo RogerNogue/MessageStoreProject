@@ -14,23 +14,36 @@ void ReceiveMessagesViewCommand::Run() const
 	std::string receiver = RequestReceiver();
 	if (receiveMessages.DoesUserExist(receiver) == true)
 	{
-		std::cout << std::endl << "===== BEGIN MESSAGES =====" << std::endl;
+		PrintMessageSectionHeader();
 		std::deque<Models::Message> usersMessages = receiveMessages.Run(receiver);
 		int num = 0;
 		while (!usersMessages.empty()) {
-			Models::Message message = usersMessages.front();
-
-			std::cout << "Message " << ++num << std::endl;
-			std::cout << "From: " << message.GetOrigin().ID << std::endl;
-			std::cout << "Content: " << message.GetContent() << std::endl << std::endl;
-
+			PrintMessageInfo(num, usersMessages.front());
 			usersMessages.pop_front();
+			++num;
 		}
-
-		std::cout << std::endl << "===== END MESSAGES =====" << std::endl;
+		PrintMessageSectionFooter();
 	}
 	else
-		std::cout << "ERROR: User doesn't exist!" << std::endl;
+		PrintUserDoesNotExistError();
+}
+void ReceiveMessagesViewCommand::PrintUserDoesNotExistError() const
+{
+	std::cout << "ERROR: User doesn't exist!" << std::endl;
+}
+void ReceiveMessagesViewCommand::PrintMessageSectionFooter() const
+{
+	std::cout << std::endl << "===== END MESSAGES =====" << std::endl;
+}
+void ReceiveMessagesViewCommand::PrintMessageSectionHeader() const
+{
+	std::cout << std::endl << "===== BEGIN MESSAGES =====" << std::endl;
+}
+void ReceiveMessagesViewCommand::PrintMessageInfo(int num, Models::Message& message) const
+{
+	std::cout << "Message " << num << std::endl;
+	std::cout << "From: " << message.GetOrigin().ID << std::endl;
+	std::cout << "Content: " << message.GetContent() << std::endl << std::endl;
 }
 std::string ReceiveMessagesViewCommand::RequestReceiver() const
 {
