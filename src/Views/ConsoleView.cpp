@@ -1,10 +1,11 @@
-#include "ConsoleView.h"
+﻿#include "ConsoleView.h"
 #include "CreateUserViewCommand.h"
 #include "SendMessageViewCommand.h"
 #include "ReceiveMessagesViewCommand.h"
 #include "QuitCommand.h"
 #include "InvalidOptionCommand.h"
 #include <iostream>
+#include <charconv>
 
 using namespace std;
 
@@ -46,14 +47,17 @@ void ConsoleView::RequestOneExtraInput() const
 	std::getline(std::cin, extraInput);
 }
 
-int ConsoleView::ProcessOption(std::string unprocessedOption) const
+int ConsoleView::ProcessOption(const std::string& unprocessedOption) const
 {
-	int processedOption = stoi(unprocessedOption);
-	if (processedOption <= 0 || processedOption >= commands.size())
-	{
+	int option = 0;
+	const char* begin = unprocessedOption.data();
+	const char* end = begin + unprocessedOption.size();
+	auto [ptr, ec] = std::from_chars(begin, end, option);
+
+	const bool wasWholeStringParsed = (ec == std::errc{} && ptr == end);
+	if (!wasWholeStringParsed || option <= 0 || option >= static_cast<int>(commands.size()))
 		return static_cast<int>(commands.size());
-	}
-	return processedOption;
+	return option;
 }
 
 std::string ConsoleView::ReadOption() const
