@@ -3,13 +3,14 @@
 #include <string>
 #include <memory>
 #include "../Controllers/SendMessage.h"
+#include "IMessageCommand.h"
 
 namespace Views {
 
-class SendMessageView {
+class SendMessageView : public IMessageCommand {
 public:
     SendMessageView(Controllers::SendMessage sendMessage);
-    void Run() const;
+    void Run() const override;
 
 private:
 

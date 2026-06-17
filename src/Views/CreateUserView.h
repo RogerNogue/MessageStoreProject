@@ -3,13 +3,14 @@
 #include <string>
 #include <memory>
 #include "../Controllers/CreateUser.h"
+#include "IMessageCommand.h"
 
 namespace Views {
 
-class CreateUserView {
+class CreateUserView : public IMessageCommand {
 public:
     CreateUserView(Controllers::CreateUser createUser);
-    void Run() const;
+    void Run() const override;
 
 private:
 
