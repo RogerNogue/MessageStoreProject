@@ -13,6 +13,7 @@ public:
     void Run() const override;
 
 private:
+    std::string RequestReceiver() const;
 
     Controllers::ReceiveAllMessages receiveMessages;
 };

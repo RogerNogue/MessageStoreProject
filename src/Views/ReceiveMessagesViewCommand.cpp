@@ -11,10 +11,7 @@ ReceiveMessagesViewCommand::ReceiveMessagesViewCommand(Controllers::ReceiveAllMe
 
 void ReceiveMessagesViewCommand::Run() const
 {
-	std::cout << "Enter name of user to receive all messages for: " << std::endl;
-	std::string receiver;
-	std::getline(std::cin, receiver);
-	std::cout << std::endl;
+	std::string receiver = RequestReceiver();
 	if (receiveMessages.DoesUserExist(receiver) == true)
 	{
 		std::cout << std::endl << "===== BEGIN MESSAGES =====" << std::endl;
@@ -34,5 +31,13 @@ void ReceiveMessagesViewCommand::Run() const
 	}
 	else
 		std::cout << "ERROR: User doesn't exist!" << std::endl;
+}
+std::string ReceiveMessagesViewCommand::RequestReceiver() const
+{
+	std::cout << "Enter name of user to receive all messages for: " << std::endl;
+	std::string receiver;
+	std::getline(std::cin, receiver);
+	std::cout << std::endl;
+	return receiver;
 }
 }// namespace Views
