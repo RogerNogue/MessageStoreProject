@@ -11,10 +11,7 @@ CreateUserViewCommand::CreateUserViewCommand(Controllers::CreateUser createUser)
 
 void CreateUserViewCommand::Run() const
 {
-	cout << "Please enter name: ";
-	string userId;
-	getline(cin, userId);
-	cout << endl;
+	string userId = ReadUserId();
 	//TODO: consider creating a result pattern to only do 1 call to the use case.
 	if (createUser.DoesUserExist(userId))
 	{
@@ -25,5 +22,14 @@ void CreateUserViewCommand::Run() const
 		createUser.Run(userId);
 		cout << "User " << userId << " added!" << endl;
 	}
+}
+
+string CreateUserViewCommand::ReadUserId() const
+{
+	cout << "Please enter name: ";
+	string userId;
+	getline(cin, userId);
+	cout << endl;
+	return userId;
 }
 }// namespace Views

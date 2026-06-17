@@ -14,6 +14,7 @@ public:
     void Run() const override;
 
 private:
+    std::string ReadUserId() const;
 
     Controllers::CreateUser createUser;
 };
