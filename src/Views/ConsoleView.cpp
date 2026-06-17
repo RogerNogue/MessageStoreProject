@@ -27,7 +27,7 @@ void ConsoleView::Run() const
 	{
 		ClearScreen();
 		PrintFunctions();
-		uint8_t option = std::stoi(ReadOption());
+		int option = std::stoi(ReadOption());
 
 		commands[option - 1]->Run();
 
