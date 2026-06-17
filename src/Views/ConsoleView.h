@@ -12,6 +12,7 @@ namespace Views {
 class ConsoleView 
 {
 public:
+    ConsoleView() = delete;
     ConsoleView(Controllers::CreateUser createUser, Controllers::SendMessage sendMessage, Controllers::ReceiveAllMessages receiveMessages);
     void Run() const;
 

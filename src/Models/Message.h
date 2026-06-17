@@ -8,6 +8,7 @@ namespace Models {
 class Message 
 {
 public:
+    Message() = delete;
     Message(User sender, User receiver, std::string content);
     User GetReceiver() const;
     User GetSender() const;

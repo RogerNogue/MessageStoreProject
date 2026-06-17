@@ -11,6 +11,7 @@ namespace Views {
 class QuitCommand : public IMessageCommand 
 {
 public:
+    QuitCommand() = delete;
     QuitCommand(std::shared_ptr<bool> quit)
         : quit(std::move(quit))
     { }

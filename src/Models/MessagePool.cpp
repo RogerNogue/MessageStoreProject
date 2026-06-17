@@ -2,10 +2,6 @@
 
 namespace Models {
 
-MessagePool::MessagePool()
-{
-}
-
 void MessagePool::StoreMessage(Message message)
 {
 	messages[message.GetReceiver().ID].emplace_back(std::move(message));

@@ -11,7 +11,6 @@ namespace Models {
 class MessagePool 
 {
 public:
-    MessagePool();
     void StoreMessage(Message message);
     std::deque<Message> ReadMessages(const User& receiver);
 private:
