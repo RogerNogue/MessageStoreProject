@@ -1,10 +1,13 @@
 #pragma once
 
+#include "../Models/Message.h"
 #include <string>
 #include <memory>
-#include "IRepository.h"
+#include <deque>
 
 namespace Controllers {
+
+class IRepository;
 
 class ReceiveAllMessages 
 {

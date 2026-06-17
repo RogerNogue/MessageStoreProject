@@ -4,6 +4,7 @@
 #include "../Models/MessagePool.h"
 #include "../Models/User.h"
 #include "../Models/Message.h"
+#include "IRepository.h"
 #include <iostream>
 
 namespace Controllers {

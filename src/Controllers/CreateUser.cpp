@@ -1,5 +1,6 @@
 #include "CreateUser.h"
 #include "../Models/UserPool.h"
+#include "IRepository.h"
 #include <iostream>
 
 namespace Controllers {

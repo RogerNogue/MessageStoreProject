@@ -2,9 +2,10 @@
 
 #include <string>
 #include <memory>
-#include "IRepository.h"
 
 namespace Controllers {
+
+class IRepository;
 
 class CreateUser 
 {
