@@ -3,8 +3,6 @@
 #include "IMessageCommand.h"
 #include <iostream>
 
-using namespace std;
-
 namespace Views {
 
 class InvalidOptionCommand : public IMessageCommand 
@@ -12,7 +10,7 @@ class InvalidOptionCommand : public IMessageCommand
 public:
     void Run() const override
     {
-        cout << "Invalid Option Selected" << endl;
+        std::cout << "Invalid Option Selected" << std::endl;
     }
 
 private:

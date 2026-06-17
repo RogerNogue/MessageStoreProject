@@ -4,8 +4,6 @@
 #include <iostream>
 #include <memory>
 
-using namespace std;
-
 namespace Views {
 
 class QuitCommand : public IMessageCommand 
@@ -17,7 +15,7 @@ public:
     { }
     void Run() const override 
     {
-        cout << "Quitting!" << endl;
+        std::cout << "Quitting!" << std::endl;
         *quit = true;
     }
 
