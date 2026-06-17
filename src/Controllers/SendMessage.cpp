@@ -21,8 +21,8 @@ bool SendMessage::DoesUserExist(const std::string& user) const
 UseCaseResult SendMessage::Run(std::string sender, std::string receiver, std::string messagetext)
 {
 	const Models::UserPool userPool = repository->GetUserPool();
-	Models::User senderUser(sender);
-	Models::User receiverUser(receiver);
+	Models::User senderUser(std::move(sender));
+	Models::User receiverUser(std::move(receiver));
 
 	if (!userPool.Exists(senderUser) || !userPool.Exists(receiverUser))
 		return UseCaseResult::UserNotFound;
@@ -30,7 +30,7 @@ UseCaseResult SendMessage::Run(std::string sender, std::string receiver, std::st
 	Models::MessagePool messagePool = repository->GetMessagePool();
 	Models::Message message(std::move(senderUser), std::move(receiverUser), std::move(messagetext));
 	messagePool.StoreMessage(std::move(message));
-	repository->SaveMessagePool(messagePool);
+	repository->SaveMessagePool(std::move(messagePool));
 	return UseCaseResult::Success;
 }
 

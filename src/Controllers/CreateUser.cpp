@@ -9,16 +9,16 @@ CreateUser::CreateUser(std::shared_ptr<IRepository> repository)
 {
 }
 
-UseCaseResult CreateUser::Run(std::string id)
+UseCaseResult CreateUser::Run(const std::string& id)
 {
 	Models::UserPool userPool = repository->GetUserPool();
-	Models::User newUser(std::move(id));
+	Models::User newUser(id);
 
 	if (userPool.Exists(newUser))
 		return UseCaseResult::UserAlreadyExists;
 
-	userPool.Create(newUser);
-	repository->SaveUserPool(userPool);
+	userPool.Create(std::move(newUser));
+	repository->SaveUserPool(std::move(userPool));
 	return UseCaseResult::Success;
 }
 

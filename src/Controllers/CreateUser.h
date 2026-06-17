@@ -13,7 +13,7 @@ class CreateUser
 public:
     CreateUser() = delete;
     CreateUser(std::shared_ptr<IRepository> repository);
-    UseCaseResult Run(std::string id);
+    UseCaseResult Run(const std::string& id);
 
 private:
     std::shared_ptr<IRepository> repository;

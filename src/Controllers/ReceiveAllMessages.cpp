@@ -21,7 +21,7 @@ std::optional<std::deque<Models::Message>> ReceiveAllMessages::Run(std::string r
 
 	Models::MessagePool messagePool = repository->GetMessagePool();
 	std::deque<Models::Message> messages = messagePool.ReadMessages(receiver);
-	repository->SaveMessagePool(messagePool);
+	repository->SaveMessagePool(std::move(messagePool));
 	return messages;
 }
 

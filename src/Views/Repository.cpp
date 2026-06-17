@@ -1,14 +1,15 @@
 #include "Repository.h"
+#include <utility>
 
 namespace Views {
-	
-void Repository::SaveUserPool(const Models::UserPool& pool)
+
+void Repository::SaveUserPool(Models::UserPool pool)
 {
-    userPool = pool;
+    userPool = std::move(pool);
 }
-void Repository::SaveMessagePool(const Models::MessagePool& pool)
+void Repository::SaveMessagePool(Models::MessagePool pool)
 {
-    messagePool = pool;
+    messagePool = std::move(pool);
 }
 Models::UserPool Repository::GetUserPool() const
 {
