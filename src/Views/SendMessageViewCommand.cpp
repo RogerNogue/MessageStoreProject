@@ -12,16 +12,16 @@ SendMessageViewCommand::SendMessageViewCommand(Controllers::SendMessage sendMess
 
 void SendMessageViewCommand::Run() const
 {
-	std::string sender = RequestSender();
+	const string sender = RequestSender();
 	//TODO: consider creating a result pattern to only do 1 call to the use case.
 	if (sendMessage.DoesUserExist(sender) == false)
 		PrintErrorUserDoesNotExist();
 	else {
-		std::string receiver = RequestReceiver();
+		string receiver = RequestReceiver();
 		if (sendMessage.DoesUserExist(receiver) == false)
 			PrintErrorUserDoesNotExist();
 		else {
-			std::string content = RequestMessageContent();
+			string content = RequestMessageContent();
 			sendMessage.Run(sender, receiver, content);
 			PrintMessageSent();
 		}
@@ -29,34 +29,39 @@ void SendMessageViewCommand::Run() const
 }
 void SendMessageViewCommand::PrintMessageSent() const
 {
-	std::cout << "Message Sent!" << std::endl;
+	s:cout << "Message Sent!" << endl;
 }
+
 void SendMessageViewCommand::PrintErrorUserDoesNotExist() const
 {
-	std::cout << "ERROR: User doesn't exist!" << std::endl;
+	cout << "ERROR: User doesn't exist!" << endl;
 }
-std::string SendMessageViewCommand::RequestMessageContent() const
+
+string SendMessageViewCommand::RequestMessageContent() const
 {
-	std::cout << "Message: ";
-	std::string content;
-	std::getline(std::cin, content);
-	std::cout << std::endl;
+	cout << "Message: ";
+	string content;
+	getline(cin, content);
+	cout << endl;
 	return content;
 }
-std::string SendMessageViewCommand::RequestReceiver() const
+
+string SendMessageViewCommand::RequestReceiver() const
 {
-	std::cout << "To: ";
-	std::string receiver;
-	std::getline(std::cin, receiver);
-	std::cout << std::endl;
+	cout << "To: ";
+	string receiver;
+	getline(cin, receiver);
+	cout << endl;
 	return receiver;
 }
-std::string SendMessageViewCommand::RequestSender() const
+
+string SendMessageViewCommand::RequestSender() const
 {
-	std::cout << "From: ";
-	std::string sender;
-	std::getline(std::cin, sender);
-	std::cout << std::endl;
+	cout << "From: ";
+	string sender;
+	getline(cin, sender);
+	cout << endl;
 	return sender;
 }
+
 }// namespace Views

@@ -11,11 +11,11 @@ ReceiveMessagesViewCommand::ReceiveMessagesViewCommand(Controllers::ReceiveAllMe
 
 void ReceiveMessagesViewCommand::Run() const
 {
-	std::string receiver = RequestReceiver();
+	const string receiver = RequestReceiver();
 	if (receiveMessages.DoesUserExist(receiver) == true)
 	{
 		PrintMessageSectionHeader();
-		std::deque<Models::Message> usersMessages = receiveMessages.Run(receiver);
+		deque<Models::Message> usersMessages = receiveMessages.Run(receiver);
 		int messageNumber = 0;
 		while (!usersMessages.empty()) 
 		{
@@ -30,28 +30,28 @@ void ReceiveMessagesViewCommand::Run() const
 }
 void ReceiveMessagesViewCommand::PrintUserDoesNotExistError() const
 {
-	std::cout << "ERROR: User doesn't exist!" << std::endl;
+	cout << "ERROR: User doesn't exist!" << endl;
 }
 void ReceiveMessagesViewCommand::PrintMessageSectionFooter() const
 {
-	std::cout << std::endl << "===== END MESSAGES =====" << std::endl;
+	cout << endl << "===== END MESSAGES =====" << endl;
 }
 void ReceiveMessagesViewCommand::PrintMessageSectionHeader() const
 {
-	std::cout << std::endl << "===== BEGIN MESSAGES =====" << std::endl;
+	cout << endl << "===== BEGIN MESSAGES =====" << endl;
 }
 void ReceiveMessagesViewCommand::PrintMessageInfo(int messageNumber, Models::Message& message) const
 {
-	std::cout << "Message " << messageNumber << std::endl;
-	std::cout << "From: " << message.GetSender().ID << std::endl;
-	std::cout << "Content: " << message.GetContent() << std::endl << std::endl;
+	cout << "Message " << messageNumber << endl;
+	cout << "From: " << message.GetSender().ID << endl;
+	cout << "Content: " << message.GetContent() << endl << endl;
 }
-std::string ReceiveMessagesViewCommand::RequestReceiver() const
+string ReceiveMessagesViewCommand::RequestReceiver() const
 {
-	std::cout << "Enter name of user to receive all messages for: " << std::endl;
-	std::string receiver;
-	std::getline(std::cin, receiver);
-	std::cout << std::endl;
+	cout << "Enter name of user to receive all messages for: " << endl;
+	string receiver;
+	getline(cin, receiver);
+	cout << endl;
 	return receiver;
 }
 }// namespace Views
