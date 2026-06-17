@@ -14,7 +14,7 @@ SendMessage::SendMessage(std::shared_ptr<IRepository> repository)
 {
 }
 
-bool SendMessage::DoesUserExist(std::string id) const
+bool SendMessage::DoesUserExist(const std::string& id) const
 {
 	const Models::UserPool userPool = repository->GetUserPool();
 

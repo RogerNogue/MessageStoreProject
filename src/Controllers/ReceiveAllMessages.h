@@ -14,7 +14,7 @@ class ReceiveAllMessages
 public:
     ReceiveAllMessages() = delete;
     ReceiveAllMessages(std::shared_ptr<IRepository> repository);
-    bool DoesUserExist(std::string id) const;
+    bool DoesUserExist(const std::string& id) const;
     std::deque<Models::Message> Run(std::string receiverId);
 
 private:

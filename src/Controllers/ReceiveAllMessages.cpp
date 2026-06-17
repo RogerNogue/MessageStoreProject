@@ -13,7 +13,7 @@ ReceiveAllMessages::ReceiveAllMessages(std::shared_ptr<IRepository> repository)
 {
 }
 
-bool ReceiveAllMessages::DoesUserExist(std::string id) const
+bool ReceiveAllMessages::DoesUserExist(const std::string& id) const
 {
 	const Models::UserPool userPool = repository->GetUserPool();
 
