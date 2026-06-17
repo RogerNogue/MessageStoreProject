@@ -40,10 +40,10 @@ void ReceiveMessagesViewCommand::PrintMessageSectionHeader() const
 {
 	cout << endl << "===== BEGIN MESSAGES =====" << endl;
 }
-void ReceiveMessagesViewCommand::PrintMessageInfo(int messageNumber, Models::Message& message) const
+void ReceiveMessagesViewCommand::PrintMessageInfo(int messageNumber, const Models::Message& message) const
 {
 	cout << "Message " << messageNumber << endl;
-	cout << "From: " << message.GetSender().ID << endl;
+	cout << "From: " << message.GetSender().id << endl;
 	cout << "Content: " << message.GetContent() << endl << endl;
 }
 string ReceiveMessagesViewCommand::RequestReceiver() const

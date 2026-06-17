@@ -18,7 +18,7 @@ private:
     void PrintUserDoesNotExistError() const;
     void PrintMessageSectionFooter() const;
     void PrintMessageSectionHeader() const;
-    void PrintMessageInfo(int num, Models::Message& message) const;
+    void PrintMessageInfo(int num, const Models::Message& message) const;
     std::string RequestReceiver() const;
 
     Controllers::ReceiveAllMessages receiveMessages;

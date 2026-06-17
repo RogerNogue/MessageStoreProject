@@ -7,7 +7,12 @@ namespace Models {
 class User 
 {
 public:
-    std::string ID;
+    User(std::string id)
+        : id(std::move(id))
+    {
+    }
+
+    std::string id;
 };
 
 } // namespace Models

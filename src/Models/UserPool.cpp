@@ -3,11 +3,11 @@
 namespace Models {
 
 void UserPool::Create(User user) {
-    users.insert(user.ID);
+    users.insert(std::move(user.id));
 }
 
 bool UserPool::Exists(const User& user) const {
-    return users.contains(user.ID);
+    return users.contains(user.id);
 }
 
 } // namespace Models
