@@ -28,7 +28,6 @@ void ConsoleView::Run()
 		ClearScreen();
 		PrintFunctions();
 		int option = ProcessOption(ReadOption());
-		
 
 		commands[option - 1]->Run();
 
