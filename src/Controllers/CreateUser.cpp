@@ -8,20 +8,19 @@ namespace Controllers {
 	{
 	}
 
+	bool CreateUser::DoesUserExist(std::string id) const
+	{
+		Models::UserPool userPool = repository->GetUserPool();
+
+		return userPool.Exists(Models::User(id));
+	}
+
 	void CreateUser::Run(std::string id) const
 	{
 		Models::UserPool userPool = repository->GetUserPool();
 
 		Models::User user(id);
-		if (userPool.Exists(user))
-		{
-			//TODO: move this logging to the view layer
-			std::cout << "ERROR: User already exists!" << std::endl;
-		}
-		else {
-			userPool.Create(user);
-			std::cout << "User " << id << " added!" << std::endl;
-		}
+		userPool.Create(user);
 
 		repository->SaveUserPool(userPool);
 	}
