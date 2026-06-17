@@ -34,6 +34,5 @@ namespace Views {
 				sendMessage.Run(sender, receiver, msg);
 			}
 		}
-		//sendMessage.Run();
 	}
 }// namespace Views

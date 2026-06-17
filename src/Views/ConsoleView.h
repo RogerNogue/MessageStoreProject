@@ -4,6 +4,7 @@
 #include <memory>
 #include "CreateUserView.h"
 #include "SendMessageView.h"
+#include "ReceiveMessagesView.h"
 #include "../Controllers/CreateUser.h"
 #include "../Controllers/SendMessage.h"
 #include "../Controllers/ReceiveAllMessages.h"
@@ -22,7 +23,7 @@ namespace Views {
 
         CreateUserView createUserView;
         SendMessageView sendMessageView;
-        Controllers::ReceiveAllMessages receiveMessages;
+        ReceiveMessagesView receiveMessagesView;
     };
 
 } // namespace Views

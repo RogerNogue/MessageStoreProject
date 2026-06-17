@@ -6,7 +6,7 @@ using namespace std;
 namespace Views {
 
 ConsoleView::ConsoleView(Controllers::CreateUser createUser, Controllers::SendMessage sendMessage, Controllers::ReceiveAllMessages receiveMessages)
-	: createUserView(std::move(createUser)), sendMessageView(std::move(sendMessage)), receiveMessages(std::move(receiveMessages))
+	: createUserView(std::move(createUser)), sendMessageView(std::move(sendMessage)), receiveMessagesView(std::move(receiveMessages))
 {
 }
 
@@ -26,7 +26,7 @@ void ConsoleView::Run() const
 			sendMessageView.Run();
 		}
 		else if (option == "3") {
-			receiveMessages.Run();
+			receiveMessagesView.Run();
 		}
 		else if (option == "4") {
 			cout << "Quitting!" << endl;
