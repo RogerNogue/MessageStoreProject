@@ -31,7 +31,7 @@ void ConsoleView::Run() const
 
 		commands[option - 1]->Run();
 
-		if (quit.get())
+		if (*quit)
 			return;
 
 		RequestOneExtraInput();
