@@ -12,36 +12,22 @@ namespace Controllers {
 	{
 	}
 
-	void SendMessage::Run() const
+	bool SendMessage::DoesUserExist(std::string id) const
+	{
+		Models::UserPool userPool = repository->GetUserPool();
+
+		return userPool.Exists(Models::User(id));
+	}
+
+	void SendMessage::Run(std::string sender, std::string receiver, std::string messagetext) const
 	{
 		Models::UserPool userPool = repository->GetUserPool();
 		Models::MessagePool messagePool = repository->GetMessagePool();
 
-		std::cout << "From: ";
-		std::string from;
-		std::getline(std::cin, from);
-		std::cout << std::endl;
-		Models::User sender(from);
-		if (userPool.Exists(sender) == false)
-			std::cout << "ERROR: User doesn't exist!" << std::endl;
-		else {
-			std::cout << "To: ";
-			std::string to;
-			std::getline(std::cin, to);
-			std::cout << std::endl;
-			Models::User receiver(to);
-			if (userPool.Exists(receiver) == false)
-				std::cout << "ERROR: User doesn't exist!" << std::endl;
-			else {
-				std::cout << "Message: ";
-				std::string msg;
-				std::getline(std::cin, msg);
-				std::cout << std::endl;
-				std::cout << "Message Sent!" << std::endl;
-				Models::Message message(sender, receiver, msg);
-				messagePool.StoreMessage(message);
-			}
-		}
+		Models::User senderUser(sender);
+		Models::User receiverUser(receiver);
+		Models::Message message(senderUser, receiverUser, messagetext);
+		messagePool.StoreMessage(message);
 
 		repository->SaveMessagePool(messagePool);
 	}

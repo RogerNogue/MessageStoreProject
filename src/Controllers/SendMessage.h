@@ -9,7 +9,8 @@ namespace Controllers {
 class SendMessage {
     public:
         SendMessage(std::shared_ptr<IRepository> repository);
-        void Run() const;
+        bool DoesUserExist(std::string id) const;
+        void Run(std::string sender, std::string receiver, std::string messagetext) const;
 
     private:
         std::shared_ptr<IRepository> repository;

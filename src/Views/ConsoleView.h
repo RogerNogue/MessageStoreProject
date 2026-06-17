@@ -3,6 +3,7 @@
 #include <string>
 #include <memory>
 #include "CreateUserView.h"
+#include "SendMessageView.h"
 #include "../Controllers/CreateUser.h"
 #include "../Controllers/SendMessage.h"
 #include "../Controllers/ReceiveAllMessages.h"
@@ -20,7 +21,7 @@ namespace Views {
         void ClearScreen() const;
 
         CreateUserView createUserView;
-        Controllers::SendMessage sendMessage;
+        SendMessageView sendMessageView;
         Controllers::ReceiveAllMessages receiveMessages;
     };
 
