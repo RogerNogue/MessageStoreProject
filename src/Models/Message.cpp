@@ -7,12 +7,12 @@ Message::Message(User sender, User receiver, std::string content)
 {
 }
 
-User Message::GetDestination() const
+User Message::GetReceiver() const
 {
 	return receiver;
 }
 
-User Message::GetOrigin() const
+User Message::GetSender() const
 {
 	return sender;
 }

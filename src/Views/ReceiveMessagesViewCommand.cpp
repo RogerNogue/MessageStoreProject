@@ -42,7 +42,7 @@ void ReceiveMessagesViewCommand::PrintMessageSectionHeader() const
 void ReceiveMessagesViewCommand::PrintMessageInfo(int messageNumber, Models::Message& message) const
 {
 	std::cout << "Message " << messageNumber << std::endl;
-	std::cout << "From: " << message.GetOrigin().ID << std::endl;
+	std::cout << "From: " << message.GetSender().ID << std::endl;
 	std::cout << "Content: " << message.GetContent() << std::endl << std::endl;
 }
 std::string ReceiveMessagesViewCommand::RequestReceiver() const

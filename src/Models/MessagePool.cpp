@@ -8,7 +8,7 @@ MessagePool::MessagePool()
 
 void MessagePool::StoreMessage(Message message)
 {
-	messages[message.GetDestination().ID].emplace_back(std::move(message));
+	messages[message.GetReceiver().ID].emplace_back(std::move(message));
 }
 
 std::deque<Message> MessagePool::ReadMessages(const User& receiver)
