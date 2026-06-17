@@ -1,15 +1,15 @@
-#include "SendMessageView.h"
+#include "SendMessageViewCommand.h"
 #include <iostream>
 
 using namespace std;
 
 namespace Views {
-	SendMessageView::SendMessageView(Controllers::SendMessage sendMessage)
+	SendMessageViewCommand::SendMessageViewCommand(Controllers::SendMessage sendMessage)
 		:sendMessage(std::move(sendMessage))
 	{
 	}
 
-	void SendMessageView::Run() const
+	void SendMessageViewCommand::Run() const
 	{
 		std::cout << "From: ";
 		std::string sender;

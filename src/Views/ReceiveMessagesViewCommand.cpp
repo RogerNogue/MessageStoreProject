@@ -1,15 +1,15 @@
-#include "ReceiveMessagesView.h"
+#include "ReceiveMessagesViewCommand.h"
 #include <iostream>
 
 using namespace std;
 
 namespace Views {
-ReceiveMessagesView::ReceiveMessagesView(Controllers::ReceiveAllMessages receiveMessages)
+ReceiveMessagesViewCommand::ReceiveMessagesViewCommand(Controllers::ReceiveAllMessages receiveMessages)
 :receiveMessages(std::move(receiveMessages))
 {
 }
 
-void ReceiveMessagesView::Run() const
+void ReceiveMessagesViewCommand::Run() const
 {
 	std::cout << "Enter name of user to receive all messages for: " << std::endl;
 	std::string receiver;

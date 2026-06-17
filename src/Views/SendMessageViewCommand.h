@@ -7,9 +7,9 @@
 
 namespace Views {
 
-class SendMessageView : public IMessageCommand {
+class SendMessageViewCommand : public IMessageCommand {
 public:
-    SendMessageView(Controllers::SendMessage sendMessage);
+    SendMessageViewCommand(Controllers::SendMessage sendMessage);
     void Run() const override;
 
 private:

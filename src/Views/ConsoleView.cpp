@@ -1,7 +1,7 @@
 #include "ConsoleView.h"
-#include "CreateUserView.h"
-#include "SendMessageView.h"
-#include "ReceiveMessagesView.h"
+#include "CreateUserViewCommand.h"
+#include "SendMessageViewCommand.h"
+#include "ReceiveMessagesViewCommand.h"
 #include "QuitCommand.h"
 #include "InvalidOptionCommand.h"
 #include <iostream>
@@ -14,9 +14,9 @@ ConsoleView::ConsoleView(Controllers::CreateUser createUser, Controllers::SendMe
 {
 	quit = std::make_shared<bool>(false);
 	commands.reserve(5);
-	commands.emplace_back(std::make_unique<CreateUserView>(std::move(createUser)));
-	commands.emplace_back(std::make_unique<SendMessageView>(std::move(sendMessage)));
-	commands.emplace_back(std::make_unique<ReceiveMessagesView>(std::move(receiveMessages)));
+	commands.emplace_back(std::make_unique<CreateUserViewCommand>(std::move(createUser)));
+	commands.emplace_back(std::make_unique<SendMessageViewCommand>(std::move(sendMessage)));
+	commands.emplace_back(std::make_unique<ReceiveMessagesViewCommand>(std::move(receiveMessages)));
 	commands.emplace_back(std::make_unique<QuitCommand>(quit));
 	commands.emplace_back(std::make_unique<InvalidOptionCommand>());
 }

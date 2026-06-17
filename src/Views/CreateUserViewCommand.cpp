@@ -1,15 +1,15 @@
-#include "CreateUserView.h"
+#include "CreateUserViewCommand.h"
 #include <iostream>
 
 using namespace std;
 
 namespace Views {
-	CreateUserView::CreateUserView(Controllers::CreateUser createUser)
+	CreateUserViewCommand::CreateUserViewCommand(Controllers::CreateUser createUser)
 		:createUser(std::move(createUser))
 	{
 	}
 
-	void CreateUserView::Run() const
+	void CreateUserViewCommand::Run() const
 	{
 		cout << "Please enter name: ";
 		string str;
