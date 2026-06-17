@@ -13,8 +13,7 @@ public:
     QuitCommand(std::shared_ptr<bool> quit)
         : quit(std::move(quit))
     { }
-    void Run() const override
-    {
+    void Run() const override {
         cout << "Quitting!" << endl;
         *quit = true;
     }

@@ -13,6 +13,11 @@ public:
     void Run() const override;
 
 private:
+    void PrintMessageSent() const;
+    void PrintErrorUserDoesNotExist() const;
+    std::string RequestMessageContent() const;
+    std::string RequestReceiver() const;
+    std::string RequestSender() const;
 
     Controllers::SendMessage sendMessage;
 };
