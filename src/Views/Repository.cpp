@@ -2,11 +2,11 @@
 
 namespace Views {
 	
-void Repository::SaveUserPool(const Models::UserPool pool)
+void Repository::SaveUserPool(const Models::UserPool& pool)
 {
     userPool = pool;
 }
-void Repository::SaveMessagePool(const Models::MessagePool pool)
+void Repository::SaveMessagePool(const Models::MessagePool& pool)
 {
     messagePool = pool;
 }
