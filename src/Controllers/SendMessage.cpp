@@ -1,11 +1,9 @@
-
 #include "SendMessage.h"
 #include "../Models/UserPool.h"
 #include "../Models/MessagePool.h"
 #include "../Models/User.h"
 #include "../Models/Message.h"
 #include "IRepository.h"
-#include <iostream>
 
 namespace Controllers {
 
@@ -14,23 +12,20 @@ SendMessage::SendMessage(std::shared_ptr<IRepository> repository)
 {
 }
 
-bool SendMessage::DoesUserExist(const std::string& id) const
+UseCaseResult SendMessage::Run(std::string sender, std::string receiver, std::string messagetext)
 {
 	const Models::UserPool userPool = repository->GetUserPool();
+	Models::User senderUser(sender);
+	Models::User receiverUser(receiver);
 
-	return userPool.Exists(Models::User(id));
-}
+	if (!userPool.Exists(senderUser) || !userPool.Exists(receiverUser))
+		return UseCaseResult::UserNotFound;
 
-void SendMessage::Run(std::string sender, std::string receiver, std::string messagetext)
-{
 	Models::MessagePool messagePool = repository->GetMessagePool();
-
-	const Models::User senderUser(std::move(sender));
-	const Models::User receiverUser(std::move(receiver));
-	Models::Message message(senderUser, receiverUser, std::move(messagetext));
-	messagePool.StoreMessage(message);
-
+	Models::Message message(std::move(senderUser), std::move(receiverUser), std::move(messagetext));
+	messagePool.StoreMessage(std::move(message));
 	repository->SaveMessagePool(messagePool);
+	return UseCaseResult::Success;
 }
 
 } // namespace Controllers

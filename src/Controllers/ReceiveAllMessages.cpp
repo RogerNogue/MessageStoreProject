@@ -1,34 +1,27 @@
-
 #include "ReceiveAllMessages.h"
 #include "../Models/UserPool.h"
 #include "../Models/MessagePool.h"
 #include "../Models/User.h"
-#include "../Models/Message.h"
 #include "IRepository.h"
-#include <iostream>
 
 namespace Controllers {
+
 ReceiveAllMessages::ReceiveAllMessages(std::shared_ptr<IRepository> repository)
 	: repository(std::move(repository))
 {
 }
 
-bool ReceiveAllMessages::DoesUserExist(const std::string& id) const
+std::optional<std::deque<Models::Message>> ReceiveAllMessages::Run(std::string receiverId)
 {
 	const Models::UserPool userPool = repository->GetUserPool();
+	const Models::User receiver(std::move(receiverId));
 
-	return userPool.Exists(Models::User(id));
-}
+	if (!userPool.Exists(receiver))
+		return std::nullopt;
 
-std::deque<Models::Message> ReceiveAllMessages::Run(std::string receiverId)
-{
 	Models::MessagePool messagePool = repository->GetMessagePool();
-
-	Models::User receiver(std::move(receiverId));
 	std::deque<Models::Message> messages = messagePool.ReadMessages(receiver);
-
 	repository->SaveMessagePool(messagePool);
-
 	return messages;
 }
 

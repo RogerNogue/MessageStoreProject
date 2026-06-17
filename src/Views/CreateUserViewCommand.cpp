@@ -12,15 +12,16 @@ CreateUserViewCommand::CreateUserViewCommand(Controllers::CreateUser createUser)
 void CreateUserViewCommand::Run()
 {
 	const string userId = ReadUserId();
-	//TODO: consider creating a result pattern to only do 1 call to the use case.
-	if (createUser.DoesUserExist(userId))
+	switch (createUser.Run(userId))
 	{
-		cout << "ERROR: User already exists!" << endl;
-	}
-	else
-	{
-		createUser.Run(userId);
-		cout << "User " << userId << " added!" << endl;
+		case Controllers::UseCaseResult::Success:
+			cout << "User " << userId << " added!" << endl;
+			break;
+		case Controllers::UseCaseResult::UserAlreadyExists:
+			cout << "ERROR: User already exists!" << endl;
+			break;
+		default:
+			break;
 	}
 }
 

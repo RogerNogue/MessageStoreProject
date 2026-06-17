@@ -2,18 +2,18 @@
 
 #include <string>
 #include <memory>
+#include "UseCaseResult.h"
 
 namespace Controllers {
 
 class IRepository;
 
-class CreateUser 
+class CreateUser
 {
 public:
     CreateUser() = delete;
     CreateUser(std::shared_ptr<IRepository> repository);
-    bool DoesUserExist(const std::string& id) const;
-    void Run(std::string id);
+    UseCaseResult Run(std::string id);
 
 private:
     std::shared_ptr<IRepository> repository;

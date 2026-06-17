@@ -4,18 +4,18 @@
 #include <string>
 #include <memory>
 #include <deque>
+#include <optional>
 
 namespace Controllers {
 
 class IRepository;
 
-class ReceiveAllMessages 
+class ReceiveAllMessages
 {
 public:
     ReceiveAllMessages() = delete;
     ReceiveAllMessages(std::shared_ptr<IRepository> repository);
-    bool DoesUserExist(const std::string& id) const;
-    std::deque<Models::Message> Run(std::string receiverId);
+    std::optional<std::deque<Models::Message>> Run(std::string receiverId);
 
 private:
     std::shared_ptr<IRepository> repository;

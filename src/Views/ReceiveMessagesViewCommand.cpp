@@ -12,21 +12,23 @@ ReceiveMessagesViewCommand::ReceiveMessagesViewCommand(Controllers::ReceiveAllMe
 void ReceiveMessagesViewCommand::Run()
 {
 	const string receiver = RequestReceiver();
-	if (receiveMessages.DoesUserExist(receiver) == true)
+	auto messages = receiveMessages.Run(receiver);
+
+	if (!messages.has_value())
 	{
-		PrintMessageSectionHeader();
-		deque<Models::Message> usersMessages = receiveMessages.Run(receiver);
-		int messageNumber = 0;
-		while (!usersMessages.empty()) 
-		{
-			PrintMessageInfo(messageNumber, usersMessages.front());
-			usersMessages.pop_front();
-			++messageNumber;
-		}
-		PrintMessageSectionFooter();
-	}
-	else
 		PrintUserDoesNotExistError();
+		return;
+	}
+
+	PrintMessageSectionHeader();
+	int messageNumber = 0;
+	while (!messages->empty())
+	{
+		PrintMessageInfo(messageNumber, messages->front());
+		messages->pop_front();
+		++messageNumber;
+	}
+	PrintMessageSectionFooter();
 }
 void ReceiveMessagesViewCommand::PrintUserDoesNotExistError() const
 {

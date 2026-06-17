@@ -13,18 +13,19 @@ SendMessageViewCommand::SendMessageViewCommand(Controllers::SendMessage sendMess
 void SendMessageViewCommand::Run()
 {
 	const string sender = RequestSender();
-	//TODO: consider creating a result pattern to only do 1 call to the use case.
-	if (sendMessage.DoesUserExist(sender) == false)
-		PrintErrorUserDoesNotExist();
-	else {
-		string receiver = RequestReceiver();
-		if (sendMessage.DoesUserExist(receiver) == false)
-			PrintErrorUserDoesNotExist();
-		else {
-			string content = RequestMessageContent();
-			sendMessage.Run(sender, receiver, content);
+	const string receiver = RequestReceiver();
+	const string content = RequestMessageContent();
+
+	switch (sendMessage.Run(sender, receiver, content))
+	{
+		case Controllers::UseCaseResult::Success:
 			PrintMessageSent();
-		}
+			break;
+		case Controllers::UseCaseResult::UserNotFound:
+			PrintErrorUserDoesNotExist();
+			break;
+		default:
+			break;
 	}
 }
 void SendMessageViewCommand::PrintMessageSent() const
