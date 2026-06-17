@@ -51,7 +51,7 @@ int ConsoleView::ProcessOption(std::string unprocessedOption) const
 	int processedOption = stoi(unprocessedOption);
 	if (processedOption <= 0 || processedOption >= commands.size())
 	{
-		return commands.size();
+		return static_cast<int>(commands.size());
 	}
 	return processedOption;
 }

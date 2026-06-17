@@ -29,7 +29,7 @@ void SendMessageViewCommand::Run() const
 }
 void SendMessageViewCommand::PrintMessageSent() const
 {
-	s:cout << "Message Sent!" << endl;
+	cout << "Message Sent!" << endl;
 }
 
 void SendMessageViewCommand::PrintErrorUserDoesNotExist() const
