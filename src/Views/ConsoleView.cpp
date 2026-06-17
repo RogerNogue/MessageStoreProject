@@ -41,8 +41,8 @@ void ConsoleView::Run() const
 void ConsoleView::RequestOneExtraInput() const
 {
 	cout << endl << "Enter any key and press return to continue.....";
-	std::string str;
-	std::getline(std::cin, str);
+	std::string extraInput;
+	std::getline(std::cin, extraInput);
 }
 
 std::string ConsoleView::ReadOption() const
