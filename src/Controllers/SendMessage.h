@@ -14,6 +14,6 @@ class SendMessage {
 
     private:
         std::shared_ptr<IRepository> repository;
-    };
+};
 
 } // namespace Controllers
