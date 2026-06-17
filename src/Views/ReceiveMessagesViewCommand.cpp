@@ -16,11 +16,11 @@ void ReceiveMessagesViewCommand::Run() const
 	{
 		PrintMessageSectionHeader();
 		std::deque<Models::Message> usersMessages = receiveMessages.Run(receiver);
-		int num = 0;
+		int messageNumber = 0;
 		while (!usersMessages.empty()) {
-			PrintMessageInfo(num, usersMessages.front());
+			PrintMessageInfo(messageNumber, usersMessages.front());
 			usersMessages.pop_front();
-			++num;
+			++messageNumber;
 		}
 		PrintMessageSectionFooter();
 	}
@@ -39,9 +39,9 @@ void ReceiveMessagesViewCommand::PrintMessageSectionHeader() const
 {
 	std::cout << std::endl << "===== BEGIN MESSAGES =====" << std::endl;
 }
-void ReceiveMessagesViewCommand::PrintMessageInfo(int num, Models::Message& message) const
+void ReceiveMessagesViewCommand::PrintMessageInfo(int messageNumber, Models::Message& message) const
 {
-	std::cout << "Message " << num << std::endl;
+	std::cout << "Message " << messageNumber << std::endl;
 	std::cout << "From: " << message.GetOrigin().ID << std::endl;
 	std::cout << "Content: " << message.GetContent() << std::endl << std::endl;
 }
