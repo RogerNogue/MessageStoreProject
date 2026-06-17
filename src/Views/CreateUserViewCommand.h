@@ -12,6 +12,7 @@ class CreateUserViewCommand : public IMessageCommand
 public:
     CreateUserViewCommand() = delete;
     CreateUserViewCommand(Controllers::CreateUser createUser);
+    void PrintOperation(int operationIndex) override;
     void Run() override;
 
 private:

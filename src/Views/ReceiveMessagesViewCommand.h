@@ -12,6 +12,7 @@ class ReceiveMessagesViewCommand : public IMessageCommand
 public:
     ReceiveMessagesViewCommand() = delete;
     ReceiveMessagesViewCommand(Controllers::ReceiveAllMessages receiveMessages);
+    void PrintOperation(int operationIndex) override;
     void Run() override;
 
 private:

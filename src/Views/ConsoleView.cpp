@@ -3,9 +3,9 @@
 #include "SendMessageViewCommand.h"
 #include "ReceiveMessagesViewCommand.h"
 #include "QuitCommand.h"
-#include "InvalidOptionCommand.h"
 #include <iostream>
 #include <charconv>
+#include <ranges>
 
 using namespace std;
 
@@ -19,7 +19,6 @@ ConsoleView::ConsoleView(Controllers::CreateUser createUser, Controllers::SendMe
 	commands.emplace_back(std::make_unique<SendMessageViewCommand>(std::move(sendMessage)));
 	commands.emplace_back(std::make_unique<ReceiveMessagesViewCommand>(std::move(receiveMessages)));
 	commands.emplace_back(std::make_unique<QuitCommand>(quit));
-	commands.emplace_back(std::make_unique<InvalidOptionCommand>());
 }
 
 void ConsoleView::Run()
@@ -29,8 +28,10 @@ void ConsoleView::Run()
 		ClearScreen();
 		PrintFunctions();
 		int option = ProcessOption(ReadOption());
-
-		commands[option - 1]->Run();
+		if (option == -1)
+			std::cout << "Invalid Option Selected" << std::endl;
+		else
+			commands[option - 1]->Run();
 
 		//TODO: improve this pointer either via: events, directly closing, or return value
 		if (*quit)
@@ -55,8 +56,8 @@ int ConsoleView::ProcessOption(const std::string& unprocessedOption) const
 	auto [ptr, ec] = std::from_chars(begin, end, option);
 
 	const bool wasWholeStringParsed = (ec == std::errc{} && ptr == end);
-	if (!wasWholeStringParsed || option <= 0 || option >= static_cast<int>(commands.size()))
-		return static_cast<int>(commands.size());
+	if (!wasWholeStringParsed || option <= 0 || option > static_cast<int>(commands.size()))
+		return -1;
 	return option;
 }
 
@@ -71,10 +72,10 @@ std::string ConsoleView::ReadOption() const
 void ConsoleView::PrintFunctions() const
 {
 	cout << "Please select an option:" << endl;
-	cout << "1. Create User" << endl;
-	cout << "2. Send Message" << endl;
-	cout << "3. Receive All Messages For User" << endl;
-	cout << "4. Quit" << endl;
+	for (int currentCommand = 0; const auto& command : commands) {
+		command->PrintOperation(currentCommand + 1);
+		++currentCommand;
+	}
 }
 
 void ConsoleView::ClearScreen() const

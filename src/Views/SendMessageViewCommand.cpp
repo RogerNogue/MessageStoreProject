@@ -10,6 +10,11 @@ SendMessageViewCommand::SendMessageViewCommand(Controllers::SendMessage sendMess
 {
 }
 
+void SendMessageViewCommand::PrintOperation(int operationIndex)
+{
+	cout << operationIndex << ". Send Message" << endl;
+}
+
 void SendMessageViewCommand::Run()
 {
 	const string sender = RequestSender();

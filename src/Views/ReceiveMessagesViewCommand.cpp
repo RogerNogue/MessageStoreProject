@@ -9,6 +9,11 @@ ReceiveMessagesViewCommand::ReceiveMessagesViewCommand(Controllers::ReceiveAllMe
 {
 }
 
+void ReceiveMessagesViewCommand::PrintOperation(int operationIndex)
+{
+	cout << operationIndex << ". Receive All Messages For User" << endl;
+}
+
 void ReceiveMessagesViewCommand::Run()
 {
 	const string receiver = RequestReceiver();

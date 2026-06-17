@@ -3,6 +3,7 @@
 #include "IMessageCommand.h"
 #include <iostream>
 #include <memory>
+#include <iostream>
 
 namespace Views {
 
@@ -13,6 +14,10 @@ public:
     QuitCommand(std::shared_ptr<bool> quit)
         : quit(std::move(quit))
     { }
+    void PrintOperation(int operationIndex) override
+    {
+        std::cout << operationIndex << ". Quit" << std::endl;
+    }
     void Run() override 
     {
         std::cout << "Quitting!" << std::endl;

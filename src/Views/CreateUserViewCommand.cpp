@@ -9,6 +9,11 @@ CreateUserViewCommand::CreateUserViewCommand(Controllers::CreateUser createUser)
 {
 }
 
+void CreateUserViewCommand::PrintOperation(int operationIndex)
+{
+	cout << operationIndex << ". Create User"  << endl;
+}
+
 void CreateUserViewCommand::Run()
 {
 	const string userId = ReadUserId();
