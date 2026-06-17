@@ -23,12 +23,11 @@ bool SendMessage::DoesUserExist(const std::string& id) const
 
 void SendMessage::Run(std::string sender, std::string receiver, std::string messagetext)
 {
-	const Models::UserPool userPool = repository->GetUserPool();
 	Models::MessagePool messagePool = repository->GetMessagePool();
 
-	const Models::User senderUser(sender);
-	const Models::User receiverUser(receiver);
-	Models::Message message(senderUser, receiverUser, messagetext);
+	const Models::User senderUser(std::move(sender));
+	const Models::User receiverUser(std::move(receiver));
+	Models::Message message(senderUser, receiverUser, std::move(messagetext));
 	messagePool.StoreMessage(message);
 
 	repository->SaveMessagePool(messagePool);
