@@ -14,9 +14,8 @@ public:
     ConsoleView(Controllers::CreateUser createUser, Controllers::SendMessage sendMessage, Controllers::ReceiveAllMessages receiveMessages);
     void Run() const;
 
-    void RequestOneExtraInput() const;
-
 private:
+    void RequestOneExtraInput() const;
     std::string ReadOption() const;
     void PrintFunctions() const;
     void ClearScreen() const;
