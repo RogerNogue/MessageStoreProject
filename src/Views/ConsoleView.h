@@ -18,6 +18,7 @@ public:
 
 private:
     void RequestOneExtraInput() const;
+    int ProcessOption(std::string unprocessedOption) const;
     std::string ReadOption() const;
     void PrintFunctions() const;
     void ClearScreen() const;

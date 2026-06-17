@@ -27,7 +27,8 @@ void ConsoleView::Run() const
 	{
 		ClearScreen();
 		PrintFunctions();
-		int option = std::stoi(ReadOption());
+		int option = ProcessOption(ReadOption());
+		
 
 		commands[option - 1]->Run();
 
@@ -43,6 +44,16 @@ void ConsoleView::RequestOneExtraInput() const
 	cout << endl << "Enter any key and press return to continue.....";
 	std::string extraInput;
 	std::getline(std::cin, extraInput);
+}
+
+int ConsoleView::ProcessOption(std::string unprocessedOption) const
+{
+	int processedOption = stoi(unprocessedOption);
+	if (processedOption <= 0 || processedOption >= commands.size())
+	{
+		return commands.size();
+	}
+	return processedOption;
 }
 
 std::string ConsoleView::ReadOption() const
