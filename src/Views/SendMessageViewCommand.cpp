@@ -4,6 +4,7 @@
 using namespace std;
 
 namespace Views {
+
 SendMessageViewCommand::SendMessageViewCommand(Controllers::SendMessage sendMessage)
 	:sendMessage(std::move(sendMessage))
 {

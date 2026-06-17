@@ -5,7 +5,8 @@
 
 namespace Views {
 
-class Repository : public Controllers::IRepository{
+class Repository : public Controllers::IRepository
+{
 public:
     ~Repository() = default;
     virtual void SaveUserPool(const Models::UserPool pool) override

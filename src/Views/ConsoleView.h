@@ -9,7 +9,8 @@
 
 namespace Views {
 
-class ConsoleView {
+class ConsoleView 
+{
 public:
     ConsoleView(Controllers::CreateUser createUser, Controllers::SendMessage sendMessage, Controllers::ReceiveAllMessages receiveMessages);
     void Run() const;

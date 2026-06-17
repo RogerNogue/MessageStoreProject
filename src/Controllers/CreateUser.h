@@ -6,7 +6,8 @@
 
 namespace Controllers {
 
-class CreateUser {
+class CreateUser 
+{
 public:
     CreateUser(std::shared_ptr<IRepository> repository);
     bool DoesUserExist(std::string id) const;

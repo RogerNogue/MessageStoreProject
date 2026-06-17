@@ -6,7 +6,8 @@
 
 namespace Models {
 
-class UserPool {
+class UserPool 
+{
 public:
     void Create(User user);
     bool Exists(const User& user) const;

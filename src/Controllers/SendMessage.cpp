@@ -7,6 +7,7 @@
 #include <iostream>
 
 namespace Controllers {
+
 SendMessage::SendMessage(std::shared_ptr<IRepository> repository)
 	: repository(std::move(repository))
 {

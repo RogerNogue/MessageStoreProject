@@ -8,7 +8,8 @@
 
 namespace Models {
 
-class MessagePool {
+class MessagePool 
+{
 public:
     MessagePool();
     void StoreMessage(Message message);

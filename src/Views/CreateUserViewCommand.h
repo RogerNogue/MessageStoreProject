@@ -7,7 +7,8 @@
 
 namespace Views {
 
-class CreateUserViewCommand : public IMessageCommand {
+class CreateUserViewCommand : public IMessageCommand 
+{
 public:
     CreateUserViewCommand(Controllers::CreateUser createUser);
     void Run() const override;

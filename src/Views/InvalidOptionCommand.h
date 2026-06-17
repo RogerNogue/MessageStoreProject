@@ -7,7 +7,8 @@ using namespace std;
 
 namespace Views {
 
-class InvalidOptionCommand : public IMessageCommand {
+class InvalidOptionCommand : public IMessageCommand 
+{
 public:
     void Run() const override
     {

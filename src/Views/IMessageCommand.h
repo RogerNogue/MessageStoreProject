@@ -1,7 +1,8 @@
 #pragma once
 
 namespace Views {
-class IMessageCommand {
+class IMessageCommand 
+{
 public:
 	virtual ~IMessageCommand() {};
 	virtual void Run() const = 0;

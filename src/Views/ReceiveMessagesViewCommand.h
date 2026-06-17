@@ -7,7 +7,8 @@
 
 namespace Views {
 
-class ReceiveMessagesViewCommand : public IMessageCommand {
+class ReceiveMessagesViewCommand : public IMessageCommand 
+{
 public:
     ReceiveMessagesViewCommand(Controllers::ReceiveAllMessages receiveMessages);
     void Run() const override;

@@ -6,7 +6,8 @@
 
 namespace Controllers {
 
-class ReceiveAllMessages {
+class ReceiveAllMessages 
+{
 public:
     ReceiveAllMessages(std::shared_ptr<IRepository> repository);
     bool DoesUserExist(std::string id) const;

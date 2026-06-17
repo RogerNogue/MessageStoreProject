@@ -4,7 +4,8 @@
 
 namespace Models {
 
-class User {
+class User 
+{
 public:
     std::string ID;
 };

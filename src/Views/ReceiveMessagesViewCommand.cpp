@@ -17,7 +17,8 @@ void ReceiveMessagesViewCommand::Run() const
 		PrintMessageSectionHeader();
 		std::deque<Models::Message> usersMessages = receiveMessages.Run(receiver);
 		int messageNumber = 0;
-		while (!usersMessages.empty()) {
+		while (!usersMessages.empty()) 
+		{
 			PrintMessageInfo(messageNumber, usersMessages.front());
 			usersMessages.pop_front();
 			++messageNumber;

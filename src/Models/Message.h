@@ -5,7 +5,8 @@
 
 namespace Models {
 
-class Message {
+class Message 
+{
 public:
     Message(User sender, User receiver, std::string content);
     User GetReceiver() const;

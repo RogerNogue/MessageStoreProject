@@ -6,7 +6,8 @@
 
 namespace Controllers {
 
-class SendMessage {
+class SendMessage 
+{
     public:
         SendMessage(std::shared_ptr<IRepository> repository);
         bool DoesUserExist(std::string id) const;
